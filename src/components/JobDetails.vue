@@ -6,18 +6,22 @@
 </template>
 
 <script>
+import {
+    jobs
+} from './jobs';
 export default {
     name: 'JobDetails',
+    props: {
+        id: String
+    },
     data() {
         return {
-            id: "",
-            details: ""
+            details: "",
         }
     },
-    created() {
-        this.id = this.$route.params.id;
-        this.details = this.$route.params.details;
-    },
+    mounted() {
+        this.details = jobs.filter(job => job.id === parseInt(this.id))[0].details;
+    }
 }
 </script>
 

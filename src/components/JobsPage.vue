@@ -3,33 +3,21 @@
 
 <div v-for="(job,index) in jobs" class="job" :key="index">
     <!-- <router-link :to="{path:`/jobs/${job.id}`" class="job-detail"> -->
-    <router-link :to="{name:'JobDetails',params: {id:job.id, details: job.details}}" class="job-detail">
+    <router-link :to="{name:'JobDetails',params: {id:job.id}}" class="job-detail">
         {{job.title}}
     </router-link>
 </div>
 </template>
 
 <script>
+import {
+    jobs
+} from './jobs';
 export default {
     name: 'JobsPage',
     data() {
         return {
-            jobs: [{
-                    title: 'Ux Designer',
-                    id: 1,
-                    details: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur iusto quasi necessitatibus, sed voluptatum nesciunt aut id voluptatem voluptas eligendi minima maiores eum?'
-                },
-                {
-                    title: 'Web Developer',
-                    id: 2,
-                    details: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur iusto quasi necessitatibus, sed voluptatum nesciunt aut id voluptatem voluptas eligendi minima maiores eum?'
-                },
-                {
-                    title: 'Node Developer',
-                    id: 3,
-                    details: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur iusto quasi necessitatibus, sed voluptatum nesciunt aut id voluptatem voluptas eligendi minima maiores eum?'
-                }
-            ]
+            jobs: jobs
         }
     },
 }
